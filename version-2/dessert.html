@@ -47,25 +47,8 @@
         >
       </div>
     </div>
-    <button class="button" id="dessert-continue" onclick="location.href='activities.html'">
+    <button class="button" onclick="location.href='activities.html'">
       Continue UwU
     </button>
-    <script>
-      const dessertStorageKey = "selectedDessert";
-      const dessertInputs = document.querySelectorAll('input[name="dessert"]');
-      const dessertContinueButton = document.querySelector("#dessert-continue");
-
-      const saveDessertSelection = () => {
-        const selectedDessert = Array.from(dessertInputs)
-          .filter((input) => input.checked)
-          .map((input) => input.value);
-        localStorage.setItem(dessertStorageKey, JSON.stringify(selectedDessert));
-      };
-
-      dessertInputs.forEach((input) =>
-        input.addEventListener("change", saveDessertSelection)
-      );
-      dessertContinueButton.addEventListener("click", saveDessertSelection);
-    </script>
   </body>
 </html>

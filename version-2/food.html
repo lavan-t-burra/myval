@@ -57,25 +57,8 @@
         <label><input type="checkbox" name="food" value="sushi" /> sushi</label>
       </div>
     </div>
-    <button class="button" id="food-continue" onclick="location.href='dessert.html'">
+    <button class="button" onclick="location.href='dessert.html'">
       Continue Hihihhh... 
     </button>
-    <script>
-      const foodStorageKey = "selectedFood";
-      const foodInputs = document.querySelectorAll('input[name="food"]');
-      const foodContinueButton = document.querySelector("#food-continue");
-
-      const saveFoodSelection = () => {
-        const selectedFood = Array.from(foodInputs)
-          .filter((input) => input.checked)
-          .map((input) => input.value);
-        localStorage.setItem(foodStorageKey, JSON.stringify(selectedFood));
-      };
-
-      foodInputs.forEach((input) =>
-        input.addEventListener("change", saveFoodSelection)
-      );
-      foodContinueButton.addEventListener("click", saveFoodSelection);
-    </script>
   </body>
 </html>
