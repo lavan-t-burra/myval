@@ -55,7 +55,7 @@ npm run dev
 yarn dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [https://lavan-t-burra.github.io/myval/version-3/](https://lavan-t-burra.github.io/myval/version-3/) in your browser
 
 ## Customization 🎨
 
@@ -81,35 +81,3 @@ yarn dev
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Fireworks.js](https://fireworks.js.org/)
-
-## Contributing 🤝
-
-Contributions are welcome! Feel free to submit issues and enhancement requests.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License 📄
-
-This project is licensed under the MIT License.
-
-## Acknowledgments 🙏
-
-- Inspired by love and creativity
-- Built with Next.js 15 App Router
-
-## Author ✍️
-
-visibait - [https://visibait.com]
-
-## Donate
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/visibait)
-
----
-
-Made with ❤️ for my Valentine
-
-*Note: This project is meant for romantic purposes. Please use responsibly and spread love!*
