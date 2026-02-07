@@ -70,32 +70,8 @@
         >
       </div>
     </div>
-    <button class="button" id="activities-continue" onclick="location.href='lastpage.html'">
+    <button class="button" onclick="location.href='lastpage.html'">
       Last page ... 
     </button>
-    <script>
-      const activitiesStorageKey = "selectedActivities";
-      const activitiesInputs = document.querySelectorAll(
-        'input[name="activities"]'
-      );
-      const activitiesContinueButton = document.querySelector(
-        "#activities-continue"
-      );
-
-      const saveActivitiesSelection = () => {
-        const selectedActivities = Array.from(activitiesInputs)
-          .filter((input) => input.checked)
-          .map((input) => input.value);
-        localStorage.setItem(
-          activitiesStorageKey,
-          JSON.stringify(selectedActivities)
-        );
-      };
-
-      activitiesInputs.forEach((input) =>
-        input.addEventListener("change", saveActivitiesSelection)
-      );
-      activitiesContinueButton.addEventListener("click", saveActivitiesSelection);
-    </script>
   </body>
 </html>
