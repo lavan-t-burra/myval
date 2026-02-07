@@ -34,6 +34,66 @@ body{
 	font-size: 50px;
 }
 
+.summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    margin-bottom: 40px;
+    background-color: #fff5e4;
+    border: 2px solid #ffe3e1;
+    border-radius: 16px;
+    box-shadow: 1px 1px 6px rgba(255, 148, 148, 0.4);
+    color: #e67373;
+    text-align: center;
+    max-width: 520px;
+}
+
+.summary h2 {
+    font-size: 28px;
+}
+
+#summary-list {
+    list-style: none;
+    display: grid;
+    gap: 6px;
+    font-size: 18px;
+}
+
+.summary-note {
+    font-size: 14px;
+    color: #ff9494;
+}
+
+.summary-status {
+    font-size: 16px;
+    color: #e67373;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px;
+    font-family: "courier";
+    margin-bottom: 20px;
+    background-color: #ffe3e1;
+    color: #e67373;
+    border-radius: 12px;
+    border: 2px solid #ffe3e1;
+    box-shadow: 1px 1px 2px #ff9494;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #ff9494;
+    color: #ffe3e1;
+    border: 2px solid #ff9494;
+    box-shadow: 1px 1px 2px #ffe3e1;
+}
+
 .flower{
     position: relative;
 }
