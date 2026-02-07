@@ -8,6 +8,18 @@
   </head>
   <body>
     <div id="thankyou"><b>Thank you for being my girlfriend</b></div>
+    <section class="summary">
+      <h2>Your selections</h2>
+      <ul id="summary-list"></ul>
+      <p class="summary-status" id="summary-status">
+        Sending your selections automatically...
+      </p>
+      <a class="button" id="email-link" href="#">Email me the plan</a>
+      <p class="summary-note">
+        We will send this automatically. The button above is a fallback if email
+        delivery is blocked.
+      </p>
+    </section>
     <div class="flower">
       <div class="f-wrapper">
         <div class="flower__line"></div>
@@ -58,5 +70,77 @@
       </div>
       <div class="flower__glass"></div>
     </div>
+    <script>
+      const summaryList = document.querySelector("#summary-list");
+      const emailLink = document.querySelector("#email-link");
+      const statusMessage = document.querySelector("#summary-status");
+
+      const readSelections = (key) => {
+        const stored = localStorage.getItem(key);
+        if (!stored) {
+          return [];
+        }
+        try {
+          const parsed = JSON.parse(stored);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+          return [];
+        }
+      };
+
+      const selections = [
+        { label: "Date", value: localStorage.getItem("selectedDate") || "" },
+        { label: "Food", value: readSelections("selectedFood").join(", ") },
+        { label: "Dessert", value: readSelections("selectedDessert").join(", ") },
+        {
+          label: "Activities",
+          value: readSelections("selectedActivities").join(", "),
+        },
+      ];
+
+      selections.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.label}: ${
+          item.value || "No selection yet"
+        }`;
+        summaryList.appendChild(listItem);
+      });
+
+      const emailAddress = "burralavanteja@gmail.com";
+      const emailSubject = "Date plan selections";
+      const emailBody = selections
+        .map((item) => `${item.label}: ${item.value || "No selection yet"}`)
+        .join("\n");
+
+      emailLink.href = `mailto:${emailAddress}?subject=${encodeURIComponent(
+        emailSubject
+      )}&body=${encodeURIComponent(emailBody)}`;
+
+      const sendSelections = async () => {
+        try {
+          const response = await fetch("/.netlify/functions/send-email", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              subject: emailSubject,
+              selections,
+            }),
+          });
+
+          if (!response.ok) {
+            throw new Error("Email delivery failed.");
+          }
+
+          statusMessage.textContent = "Email sent successfully!";
+        } catch (error) {
+          statusMessage.textContent =
+            "We couldn't send the email automatically. Please use the button above.";
+        }
+      };
+
+      sendSelections();
+    </script>
   </body>
 </html>
